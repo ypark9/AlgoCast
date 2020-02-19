@@ -8,6 +8,9 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+function anagrams(stringA, stringB) {
+    //push items into Map and find the item from another str from the map and remove the item from MAp
+    return stringA.split('').reverse().join('') === stringB;
+}
 
 module.exports = anagrams;
