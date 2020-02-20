@@ -10,6 +10,7 @@
 
 function fib(n) {
     if(n === 0)
+<<<<<<< HEAD
     return 0;
     else if (n === 1)
     return 1;
@@ -19,6 +20,13 @@ function fib(n) {
     {
         return fib(n-2) + fib(n-1);
     }
+=======
+        return 0;
+    if(n === 1 || n === 2)
+        return 1;
+    else
+        return fib(n-2) + fib(n -1);
+>>>>>>> 33e7e69791ce6d746ab0f6150e299ab2137e058a
 }
 
 module.exports = fib;
