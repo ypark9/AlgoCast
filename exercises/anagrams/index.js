@@ -9,23 +9,8 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
-<<<<<<< HEAD
-    if(stringA.length !== stringB.length)
-        return false;
-    var isAnagrams = true;
-    var strArr1 = stringA.split('');
-    for(char of stringB)
-    {
-        strArr1.findIndex(function(_char) {
-            return _char === char;
-        }, CharacterData)
-    }
-
-    return isAnagrams;
-=======
     //push items into Map and find the item from another str from the map and remove the item from MAp
     return stringA.split('').reverse().join('') === stringB;
->>>>>>> 33e7e69791ce6d746ab0f6150e299ab2137e058a
 }
 
 module.exports = anagrams;
