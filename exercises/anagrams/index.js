@@ -19,7 +19,6 @@ function anagrams(stringA, stringB) {
         charObj[char] = 1
        }
     }
-    console.log(charObj);
     
     var isAnagrams = true;
     for(let char of stringB){
@@ -34,7 +33,6 @@ function anagrams(stringA, stringB) {
             break;
         }
      }
-     console.log(charObj);
      
      if(isAnagrams){
         for(let att in charObj){
