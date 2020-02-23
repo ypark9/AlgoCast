@@ -17,18 +17,40 @@
 //       '### '
 //       '####'
 
-function steps(n) {
-    let steps = [];
-    var str = '';
-    for(var i = 0; i < n; i++)
-    {
-        str += ' ';
-    }
+function steps(n, curIndex = 0, retStr = '') {
+  var index = 0;
+  if (n === 1) return console.log("#");
 
-    for(var i = 0; i < n; i++){
-        str[i] = '#'; 
-        steps.push();
-    }
+  if (curIndex === n) {
+    console.log(retStr);
+    return steps(n - 1, 0, '');
+  }
+  var retStr = "#";
+  for (let j = 0; j < curIndex; j++) {
+    retStr += "#";
+  }
+  for (let j = 0; j < n - curIndex - 1; j++) {
+    retStr += " ";
+  }
+
+  return steps(n, curIndex + 1, retStr);
 }
+
+// function steps(n) {
+//     var index = 0;
+//     if(n === 1)
+//     return console.log('#');
+    
+//     for(var i = 0; i < n; i++){
+//         let retStr = '#';
+//         for(let j = 0; j < i; j ++){
+//             retStr += '#';
+//         } 
+//         for(let j = 0; j < (n-i - 1); j ++){
+//             retStr += ' ';
+//         }
+//         console.log(retStr);
+//     }
+// }
 
 module.exports = steps;
