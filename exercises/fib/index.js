@@ -8,6 +8,20 @@
 // Example:
 //   fib(4) === 3
 
+function memoization(fn){
+    const cache = {};
+    
+    return function(... args){
+        if(cache[args]){
+            return cache[args];
+        }
+        var result = fn.apply(this, args);
+        cache[args] = result;
+
+        return result;
+    };
+}
+
 function fib(n) {
     if(n === 0)
         return 0;
