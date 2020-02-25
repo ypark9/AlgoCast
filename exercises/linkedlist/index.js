@@ -70,8 +70,8 @@ class LinkedList {
     }
 
     insertLast(node) {
-        let node =this.getLast();
-        node.next = node;
+        let lastnode = this.getLast();
+        lastnode.next = node;
     }
 
     getAt(n) {
