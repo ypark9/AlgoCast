@@ -3,10 +3,9 @@
 // See 'directions' document
 
 class Node {
-    constructor(data, node){
+    constructor(data, node = null){
         this.data = data;
-        if (node !== undefined) this.next = null;
-        else this.next = node;
+        this.next = node;
     }
 }
 
@@ -15,8 +14,8 @@ class LinkedList {
         this.head = null;
     }
 
-    insertFirst(node) {
-        this.head = node;
+    insertFirst(data) {
+        this.head =  new Node(data, this.head);
     }
 
     size(){
@@ -24,7 +23,7 @@ class LinkedList {
         let node = this.head;
         if(node !== undefined)
         {
-            while(node.next !== undefined) {
+            while(node) { // I did node.next !== undefined
                 count ++;
                 node = node.next;
             }
