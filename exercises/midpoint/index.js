@@ -13,7 +13,14 @@
 //   midpoint(l); // returns { data: 'b' }
 
 function midpoint(list) {
+    let node = list.getFirst();    
+    let node2x = list.getFirst();
     
+    while(node2x.next && node2x.next.next){
+        node2x = node2x.next.next;
+        node = node.next;
+    }    
+    return node;
 }
 
 module.exports = midpoint;
