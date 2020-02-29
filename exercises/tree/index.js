@@ -44,14 +44,15 @@ class Tree {
         }
     }
 
-    traverseDF(){
+    traverseDF(fn){
         let arr = [];
         arr.push(this.root);
         while (arr.length !== 0) { //could be while(arr.length)
             let node = arr.shift();
-            for (let child of node.children) { // arr.unshift(... node.children);
-                arr.unshift(child);
-            }
+            // for (let child of node.children) { // arr.unshift(... node.children);
+            //     arr.unshift(child);            // need to know how to mimic the ... with for loop
+            // }
+            arr.unshift(... node.children);
             fn(node);
         }
     }

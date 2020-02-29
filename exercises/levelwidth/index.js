@@ -17,7 +17,7 @@ function levelWidth(root) {
     let level = 0; //
 
     while (arr.length > 1) {
-        let node = arr.shift;
+        let node = arr.shift();
         if(node === 's')
         {
             retArr.push(0);
