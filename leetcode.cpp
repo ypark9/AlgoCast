@@ -34,7 +34,11 @@ public:
 };
 
 //# Max subarray
-//
+/*
+Input: [-2,1,-3,4,-1,2,1,-5,4],
+Output: 6
+Explanation: [4,-1,2,1] has the largest sum = 6.
+*/
 // DP
 class MaxSubArraySolution {
 public:
@@ -100,6 +104,14 @@ public:
 };
 
 //
+/*
+Input: ["eat", "tea", "tan", "ate", "nat", "bat"],
+Output:
+[
+  ["ate","eat","tea"],
+  ["nat","tan"],
+  ["bat"]
+]*/
 class GroupAnagramsSolution {
 public:
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
