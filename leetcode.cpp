@@ -163,3 +163,32 @@ public:
       return count;
     }
 };
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+#include <math.h>       /* ceil */
+
+class MiddleNodeSolution {
+public:
+    ListNode* middleNode(ListNode* head) {
+      int size = 0;  
+      ListNode *target = head;
+      while(target != nullptr)
+      {
+        size ++;
+        target = target->next;
+      }
+        
+      int mid = ceil(size/2);
+      target = head;
+      for(int i = 0; i < mid; i ++)
+        target = target->next;
+      return target;
+    }
+};
