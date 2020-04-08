@@ -176,19 +176,11 @@ public:
 
 class MiddleNodeSolution {
 public:
-    ListNode* middleNode(ListNode* head) {
-      int size = 0;  
-      ListNode *target = head;
-      while(target != nullptr)
-      {
-        size ++;
-        target = target->next;
-      }
-        
-      int mid = ceil(size/2);
-      target = head;
-      for(int i = 0; i < mid; i ++)
-        target = target->next;
-      return target;
+    ListNode* middleNode(ListNode* head) 
+    {
+        ListNode *slow = head, *fast = head;
+        while (fast && fast->next)
+            slow = slow->next, fast = fast->next->next;
+        return slow;
     }
 };
