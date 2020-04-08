@@ -119,13 +119,17 @@ public:
 };
 
 // Counting Elements
-class Solution {
+/*
+Input: arr = [1,3,2,3,5,0]
+Output: 3
+Explanation: 0, 1 and 2 are counted cause 1, 2 and 3 are in arr.
+*/
+class CountingElementsSolution {
 public:
     int countElements(vector<int>& arr) {
       int count = 0;
       std::sort(arr.begin(), arr.end());
 //      std::ostringstream vts; 
-
 //       if (!arr.empty()) 
 //       { 
 //         // Convert all but the last element to avoid a trailing "," 
@@ -142,10 +146,7 @@ public:
         //sd::cout << "num: " << num << "\n"<< std::endl;
         std::vector<int>::iterator it = std::find(arr.begin(), arr.end(), (num+1));
         if(it != arr.end())
-        {
           count ++;
-          //std::cout << "count: " << count << "\n"<< std::endl;
-        }
       }
       return count;
     }
