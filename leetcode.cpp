@@ -117,3 +117,36 @@ public:
     }
 
 };
+
+// Counting Elements
+class Solution {
+public:
+    int countElements(vector<int>& arr) {
+      int count = 0;
+      std::sort(arr.begin(), arr.end());
+//      std::ostringstream vts; 
+
+//       if (!arr.empty()) 
+//       { 
+//         // Convert all but the last element to avoid a trailing "," 
+//         std::copy(arr.begin(), arr.end()-1, 
+//             std::ostream_iterator<int>(vts, ", ")); 
+
+//         // Now add the last element with no delimiter 
+//         vts << arr.back(); 
+//       } 
+//       std::cout << "npone: " << vts.str() << "\n"<< std::endl;
+
+      for(auto num : arr)
+      {
+        //sd::cout << "num: " << num << "\n"<< std::endl;
+        std::vector<int>::iterator it = std::find(arr.begin(), arr.end(), (num+1));
+        if(it != arr.end())
+        {
+          count ++;
+          //std::cout << "count: " << count << "\n"<< std::endl;
+        }
+      }
+      return count;
+    }
+};
