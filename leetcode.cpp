@@ -206,3 +206,30 @@ public:
         return a == b;
     }
 };
+
+/*
+The diameter of a binary tree is the length of the longest path between any two nodes in a tree. 
+This path may or may not pass through the root.
+*/
+class DiameterOfBinaryTreeSolution {
+public:
+    int cal(TreeNode* node, int &d)
+    {
+        if(node == nullptr) // leaf node's diameter should be 0.
+            return 0;
+        int lD = cal(node->left, d);
+        int rD = cal(node->right, d);
+        
+        //calculate each node's diameter
+        d = max(d, lD + rD);
+        
+        return 1 + max(lD, rD);
+    }
+    
+    int diameterOfBinaryTree(TreeNode* root) 
+    {
+        int d = 0;
+        cal(root, d);
+        return d;
+    }
+};
