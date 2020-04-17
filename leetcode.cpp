@@ -262,6 +262,16 @@ int lastStoneWeight(vector<int>& stones) {
     }
 };
 
+/*
+The approach for DFS is
+
+Iterate through every element in the grid. If the element is a 1, call the DFS function and increment the counter for the number of islands by 1.
+Within the DFS:
+Check if the element is out of bounds / not equal to 1. If it is, return.
+Set the element to equal '0' (so that it is never counted again, you are removing the island)
+Call the DFS in all 4 directions
+Essentially, whenever you find an island, you remove it.
+*/
 class numIslandsSolution {
 public:
     int numIslands(vector<vector<char>>& grid) {
@@ -284,14 +294,16 @@ private:
         int x = grid.size(); int y = grid[0].size();
         
         // if out of bounds or not '1', return
-        if( a < 0 || b < 0 || a >= x || b >= y || grid[a][b] != '1') return;
+        if( a < 0 || b < 0 || a >= x || b >= y || grid[a][b] != '1') 
+            return;
         
         // set the '1' to be '0' so not recounted
         grid[a][b] = '0';
         
         // recurse in all 4 directions
         int changeX[4] = {0,-1,1,0}, changeY[4] = {-1,0,0,1};
-        for(int i = 0; i < 4; i++)  findIsland(a + changeX[i], b + changeY[i], grid);
-        
+        for(int i = 0; i < 4; i++)  
+            findIsland(a + changeX[i], b + changeY[i], grid);
+      
     }
 };
