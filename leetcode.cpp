@@ -1,6 +1,41 @@
 #include <set>
 using namespace std;
 
+/**
+Input: [8,5,1,7,10,12]
+Output: [8,5,10,1,7,null,12]
+https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/
+ */
+class bstFromPreorderSolution {
+        
+private:
+    TreeNode* BstInsert(TreeNode *& node, int value)
+    {
+        if(node == nullptr)
+        {
+            node = new TreeNode(value);
+        }
+        else
+        {
+            if (value < node->val)
+                node->left = BstInsert(node->left, value);
+            else if (value > node->val)
+                node->right = BstInsert(node->right, value);
+        } 
+        return node;
+    }
+    
+public:
+    TreeNode* bstFromPreorder(vector<int>& preorder) {
+        TreeNode * root = nullptr;
+        for(auto item : preorder)
+        {
+            BstInsert(root, item);
+        }
+        return root;
+    }
+};
+
 //# Happy number
 // The idea is when you see the circulation see previous value again. 
 // This means it never be happy number like... 
