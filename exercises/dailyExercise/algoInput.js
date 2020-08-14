@@ -56,3 +56,31 @@ function findMaxChar(str) {
 }
 
 findMaxChar("aaddddddddddvvvvvvvvvvvvvvvvvvv");
+
+// function chunck(arr, num) {
+//   let retArr = [];
+//   let arrlength = arr.length;
+//   let indicator = 0;
+//   for(;;) {
+//     retArr.push(arr.splice(0, num));
+//     indicator += num;
+//     if(indicator >= arrlength) {
+//       break;
+//     }
+//   }
+
+//   return retArr;
+// }
+
+// let arr = [1,2,3,4,6,7,8];
+
+// chunck(arr, 10);
+
+function anagrams (str1, str2 ) {
+  let strM1 = str1.replace(/[^0-9a-zA-Z]/, "");
+  let strM2 =str2.replace(/[^0-9a-zA-Z]/, "");
+  console.log(strM1 + " : " + strM2);
+  return str1.toUpperCase().split("").sort().join("") === str2.toUpperCase().split("").sort().join("");
+}
+
+anagrams("RAIL1 SAFETY!!", "FAIRY1 !!TAles");
