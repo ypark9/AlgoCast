@@ -16,46 +16,43 @@
 
 // mergeArray(arr, arr1);
 
-
 function palindrome(str) {
-  return str.split("").reverse().join("") === str
+	return str.split('').reverse().join('') === str;
 }
 
-palindrome("abba")
+palindrome('abba');
 
 function reverseInt(number) {
-  let numStr = String(number)
-  return +(numStr.split("").reverse().join(""))
+	let numStr = String(number);
+	return +numStr.split('').reverse().join('');
 }
 
-reverseInt(69)
-
+reverseInt(69);
 
 function findMaxChar(str) {
-  let dic = {};
-  let maxCount = 0;
-  let maxChar;
-  //need to check how to initialize the map in js
-  for(char of str) {
-    if(dic[char]){
-      dic[char] ++;
-    }
-    else {
-      dic[char] = 1;
-    }
-  }
+	let dic = {};
+	let maxCount = 0;
+	let maxChar;
+	//need to check how to initialize the map in js
+	for (char of str) {
+		if (dic[char]) {
+			dic[char]++;
+		} else {
+			dic[char] = 1;
+		}
+	}
 
-  for ( char in dic) {
-    if(dic[char] > maxCount) {
-      maxCount = dic[char];
-      maxChar = char;
-    }
-  }
-  console.log(`${maxChar}`);
-  return {maxCount : maxCount, character : maxChar}
+	for (char in dic) {
+		if (dic[char] > maxCount) {
+			maxCount = dic[char];
+			maxChar = char;
+		}
+	}
+	console.log(`${maxChar}`);
+	return { maxCount: maxCount, character: maxChar };
 }
 
-findMaxChar("aaddddddddddvvvvvvvvvvvvvvvvvvv");
+findMaxChar('aaddddddddddvvvvvvvvvvvvvvvvvvv');
 
 // function chunck(arr, num) {
 //   let retArr = [];
@@ -76,11 +73,22 @@ findMaxChar("aaddddddddddvvvvvvvvvvvvvvvvvvv");
 
 // chunck(arr, 10);
 
-function anagrams (str1, str2 ) {
-  let strM1 = str1.replace(/[^0-9a-zA-Z]/, "");
-  let strM2 =str2.replace(/[^0-9a-zA-Z]/, "");
-  console.log(strM1 + " : " + strM2);
-  return str1.toUpperCase().split("").sort().join("") === str2.toUpperCase().split("").sort().join("");
+function anagrams(str1, str2) {
+	let strM1 = str1.replace(/[^0-9a-zA-Z]/g, '');
+	let strM2 = str2.replace(/[^0-9a-zA-Z]/g, '');
+	console.log(strM1 + ' : ' + strM2);
+	return str1.toUpperCase().split('').sort().join('') === str2.toUpperCase().split('').sort().join('');
 }
 
-anagrams("RAIL1 SAFETY!!", "FAIRY1 !!TAles");
+anagrams('RAIL1 SAFETY!!', 'FAIRY1 !!TAles');
+
+function capitalization(str) {
+	let retArr = [];
+	for (word of str.split(' ')) {
+		retArr.push(word[0].toUpperCase() + word.substring(1));
+	}
+	return retArr;
+}
+
+capitalization('i love you.');
+console.log("capitalization('i love you.')", capitalization('i love you.'));
