@@ -73,22 +73,55 @@ findMaxChar('aaddddddddddvvvvvvvvvvvvvvvvvvv');
 
 // chunck(arr, 10);
 
-function anagrams(str1, str2) {
-	let strM1 = str1.replace(/[^0-9a-zA-Z]/g, '');
-	let strM2 = str2.replace(/[^0-9a-zA-Z]/g, '');
-	console.log(strM1 + ' : ' + strM2);
-	return str1.toUpperCase().split('').sort().join('') === str2.toUpperCase().split('').sort().join('');
-}
+// function anagrams(str1, str2) {
+// 	let strM1 = str1.replace(/[^0-9a-zA-Z]/g, '');
+// 	let strM2 = str2.replace(/[^0-9a-zA-Z]/g, '');
+// 	console.log(strM1 + ' : ' + strM2);
+// 	return str1.toUpperCase().split('').sort().join('') === str2.toUpperCase().split('').sort().join('');
+// }
 
-anagrams('RAIL1 SAFETY!!', 'FAIRY1 !!TAles');
+// anagrams('RAIL1 SAFETY!!', 'FAIRY1 !!TAles');
 
-function capitalization(str) {
-	let retArr = [];
-	for (word of str.split(' ')) {
-		retArr.push(word[0].toUpperCase() + word.substring(1));
+// function capitalization(str) {
+// 	let retArr = [];
+// 	for (word of str.split(' ')) {
+// 		retArr.push(word[0].toUpperCase() + word.substring(1));
+// 	}
+// 	return retArr;
+// }
+
+// capitalization('i love you.');
+// console.log("capitalization('i love you.')", capitalization('i love you.'));
+
+// function steps(num) {
+// 	let retArr = [];
+// 	let starStr = '';
+// 	for (let i = 0; i < num; i++) {
+// 		starStr += '*';
+// 	}
+// 	for (let i = 0; i < num - 1; i++) {
+// 		retArr.push(starStr.substring(0, i + 1));
+// 	}
+// 	retArr.push(starStr);
+// 	return retArr;
+// }
+
+// steps(5);
+// console.log('steps(5)', steps(5));
+
+function pyramid(num) {
+	let largestStarNum = num * 2 - 1;
+	let starStr = '*';
+	let starObjsArry = [ { stars: '*', NeedToFill: largestStarNum - 1 } ];
+
+	// we got first one above.
+	for (let i = 2; i <= num; i++) {
+		starStr += '**';
+		starObjsArry.push({ stars: starStr, NeedToFill: largestStarNum - (2 * i - 1) });
 	}
-	return retArr;
+
+	console.log('pyramid -> starObjsArry', starObjsArry[2]);
+	return starObjsArry;
 }
 
-capitalization('i love you.');
-console.log("capitalization('i love you.')", capitalization('i love you.'));
+let pyramidObj = pyramid(3);
