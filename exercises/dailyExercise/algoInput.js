@@ -7,8 +7,7 @@
 // function mergeArray(arr, arr1) {
 //   let arr2 =  arr.concat(arr1).sort();
 //   console.log(arr2);
-//   return arr2.filter((item, pos) =>
-//      arr2.indexOf(item) === pos);
+//   return arr2.filter((item, pos) => arr2.indexOf(item) === pos);
 // }
 
 // let arr = [1,4,6,7]
@@ -109,28 +108,38 @@ findMaxChar('aaddddddddddvvvvvvvvvvvvvvvvvvv');
 // steps(5);
 // console.log('steps(5)', steps(5));
 
-function pyramid(num) {
-	let largestStarNum = num * 2 - 1;
-	let starStr = '*';
-	let starObjsArry = [ { stars: '*', NeedToFill: largestStarNum - 1 } ];
+// function pyramid(num) {
+// 	let largestStarNum = num * 2 - 1;
+// 	let starStr = '*';
+// 	let starObjsArry = [ { stars: '*', NeedToFill: largestStarNum - 1 } ];
 
-	// we got first one above.
-	for (let i = 2; i <= num; i++) {
-    starStr += '**';
-		starObjsArry.push({ stars: starStr, NeedToFill: largestStarNum - (2 * i - 1) });
-  }
+// 	// we got first one above.
+// 	for (let i = 2; i <= num; i++) {
+//     starStr += '**';
+// 		starObjsArry.push({ stars: starStr, NeedToFill: largestStarNum - (2 * i - 1) });
+//   }
 
-  for(item of starObjsArry) {
+//   for(item of starObjsArry) {
 
-    for(let i = 0; i < item.NeedToFill/2; i ++) {
-      item.stars = " "+ item.stars;
-      item.stars = item.stars + " ";
-    }
-  }
+//     for(let i = 0; i < item.NeedToFill/2; i ++) {
+//       item.stars = " "+ item.stars;
+//       item.stars = item.stars + " ";
+//     }
+//   }
 
-	return starObjsArry;
+// 	return starObjsArry;
+// }
+
+// let pyramidObj = pyramid(3).join("");
+// console.log("pyramidObj", pyramidObj);
+
+function findVowels(str) {
+
+  //replace to find vowels . -replace regex 
+  let refultStr = str.replace(/[^aiueo]/g, "");
+  return refultStr.length;  
 }
 
-let pyramidObj = pyramid(3).join("");
-console.log("pyramidObj", pyramidObj);
+let count = findVowels("aaddncnskskdiooo");
+console.log("count", count);
 
