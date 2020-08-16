@@ -116,12 +116,21 @@ function pyramid(num) {
 
 	// we got first one above.
 	for (let i = 2; i <= num; i++) {
-		starStr += '**';
+    starStr += '**';
 		starObjsArry.push({ stars: starStr, NeedToFill: largestStarNum - (2 * i - 1) });
-	}
+  }
 
-	console.log('pyramid -> starObjsArry', starObjsArry[2]);
+  for(item of starObjsArry) {
+
+    for(let i = 0; i < item.NeedToFill/2; i ++) {
+      item.stars = " "+ item.stars;
+      item.stars = item.stars + " ";
+    }
+  }
+
 	return starObjsArry;
 }
 
-let pyramidObj = pyramid(3);
+let pyramidObj = pyramid(3).join("");
+console.log("pyramidObj", pyramidObj);
+
