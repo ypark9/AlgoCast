@@ -133,13 +133,18 @@ findMaxChar('aaddddddddddvvvvvvvvvvvvvvvvvvv');
 // let pyramidObj = pyramid(3).join("");
 // console.log("pyramidObj", pyramidObj);
 
-function findVowels(str) {
+// function findVowels(str) {
 
-  //replace to find vowels . -replace regex 
-  let refultStr = str.replace(/[^aiueo]/g, "");
-  return refultStr.length;  
+//   //replace to find vowels . -replace regex 
+//   let refultStr = str.replace(/[^aiueo]/g, "");
+//   return refultStr.length;  
+// }
+
+// let count = findVowels("aaddncnskskdiooo");
+// console.log("count", count);
+
+
+function matrix(num) {
+  let startRow = 0, endRow = num -1, startCol = 0, endCol = num - 1 ;
+  
 }
-
-let count = findVowels("aaddncnskskdiooo");
-console.log("count", count);
-
