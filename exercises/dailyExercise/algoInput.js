@@ -15,43 +15,43 @@
 
 // mergeArray(arr, arr1);
 
-function palindrome(str) {
-	return str.split('').reverse().join('') === str;
-}
+// function palindrome(str) {
+// 	return str.split('').reverse().join('') === str;
+// }
 
-palindrome('abba');
+// palindrome('abba');
 
-function reverseInt(number) {
-	let numStr = String(number);
-	return +numStr.split('').reverse().join('');
-}
+// function reverseInt(number) {
+// 	let numStr = String(number);
+// 	return +numStr.split('').reverse().join('');
+// }
 
-reverseInt(69);
+// reverseInt(69);
 
-function findMaxChar(str) {
-	let dic = {};
-	let maxCount = 0;
-	let maxChar;
-	//need to check how to initialize the map in js
-	for (char of str) {
-		if (dic[char]) {
-			dic[char]++;
-		} else {
-			dic[char] = 1;
-		}
-	}
+// function findMaxChar(str) {
+// 	let dic = {};
+// 	let maxCount = 0;
+// 	let maxChar;
+// 	//need to check how to initialize the map in js
+// 	for (char of str) {
+// 		if (dic[char]) {
+// 			dic[char]++;
+// 		} else {
+// 			dic[char] = 1;
+// 		}
+// 	}
 
-	for (char in dic) {
-		if (dic[char] > maxCount) {
-			maxCount = dic[char];
-			maxChar = char;
-		}
-	}
-	console.log(`${maxChar}`);
-	return { maxCount: maxCount, character: maxChar };
-}
+// 	for (char in dic) {
+// 		if (dic[char] > maxCount) {
+// 			maxCount = dic[char];
+// 			maxChar = char;
+// 		}
+// 	}
+// 	console.log(`${maxChar}`);
+// 	return { maxCount: maxCount, character: maxChar };
+// }
 
-findMaxChar('aaddddddddddvvvvvvvvvvvvvvvvvvv');
+// findMaxChar('aaddddddddddvvvvvvvvvvvvvvvvvvv');
 
 // function chunck(arr, num) {
 //   let retArr = [];
@@ -118,15 +118,12 @@ findMaxChar('aaddddddddddvvvvvvvvvvvvvvvvvvv');
 //     starStr += '**';
 // 		starObjsArry.push({ stars: starStr, NeedToFill: largestStarNum - (2 * i - 1) });
 //   }
-
 //   for(item of starObjsArry) {
-
 //     for(let i = 0; i < item.NeedToFill/2; i ++) {
 //       item.stars = " "+ item.stars;
 //       item.stars = item.stars + " ";
 //     }
 //   }
-
 // 	return starObjsArry;
 // }
 
@@ -135,16 +132,47 @@ findMaxChar('aaddddddddddvvvvvvvvvvvvvvvvvvv');
 
 // function findVowels(str) {
 
-//   //replace to find vowels . -replace regex 
+//   //replace to find vowels . -replace regex
 //   let refultStr = str.replace(/[^aiueo]/g, "");
-//   return refultStr.length;  
+//   return refultStr.length;
 // }
 
 // let count = findVowels("aaddncnskskdiooo");
 // console.log("count", count);
 
-
 function matrix(num) {
-  let startRow = 0, endRow = num -1, startCol = 0, endCol = num - 1 ;
-  
+	// remember how to initialize NxN matrix.
+	let mtrx = new Array(num).fill().map(() => new Array(num).fill(1));
+	console.log(mtrx);
+
+	let startRow = 0,
+		endRow = num - 1,
+		startCol = 0,
+		endCol = num - 1;
+	let count = 1;
+	while (startRow <= endRow && startCol <= endCol) {
+		for (let col = startCol; col <= endCol; col++) {
+			mtrx[startRow][col] = count;
+			count++;
+		}
+		startRow++;
+		for (let row = startRow; row <= endRow; row++) {
+			mtrx[row][endCol] = count;
+			count++;
+		}
+		endCol--;
+		for (let col = endCol; col >= startCol; col--) {
+			mtrx[endRow][col] = count;
+			count++;
+		}
+		endRow--;
+		for (let row = endRow; row >= startRow; row--) {
+			mtrx[row][startCol] = count;
+			count++;
+		}
+		startCol++;
+	}
+	return mtrx;
 }
+
+console.log(matrix(3));
