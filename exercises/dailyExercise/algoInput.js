@@ -139,7 +139,12 @@
 
 // let count = findVowels("aaddncnskskdiooo");
 // console.log("count", count);
-
+//     matrix(4)
+//     [[1,  2,  3, 4],
+//     [12, 13, 14, 5],
+//     [11, 16, 15, 6],
+//     [10,  9,  8, 7]]
+// https://code.likeagirl.io/create-a-nxn-matrix-spiral-with-javascript-955ee18402f7
 function matrix(num) {
 	// remember how to initialize NxN matrix.
 	let mtrx = new Array(num).fill().map(() => new Array(num).fill(1));
