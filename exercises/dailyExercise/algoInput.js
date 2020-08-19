@@ -143,8 +143,14 @@ findMaxChar('aaddddddddddvvvvvvvvvvvvvvvvvvv');
 // let count = findVowels("aaddncnskskdiooo");
 // console.log("count", count);
 
+//let filledArray = new Array(10).fill(null).map(()=> ({'hello':'goodbye'}))
+// In this approach, we are creating an array with ten empty slots, then filling those slots with the null value, 
+// then creating a new array with unique objects. 
 
 function matrix(num) {
   let startRow = 0, endRow = num -1, startCol = 0, endCol = num - 1 ;
-  
+  let count = 1;
 }
+
+let testArr = new Array(4).fill(0).map();
+console.log("testArr", testArr);
