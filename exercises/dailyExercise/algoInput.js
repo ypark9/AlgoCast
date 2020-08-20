@@ -145,39 +145,39 @@
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
 // https://code.likeagirl.io/create-a-nxn-matrix-spiral-with-javascript-955ee18402f7
-function matrix(num) {
-	// remember how to initialize NxN matrix.
-	let mtrx = new Array(num).fill().map(() => new Array(num).fill(1));
-	console.log(mtrx);
+// function matrix(num) {
+// 	// remember how to initialize NxN matrix.
+// 	let mtrx = new Array(num).fill().map(() => new Array(num).fill(1));
+// 	console.log(mtrx);
 
-	let startRow = 0,
-		endRow = num - 1,
-		startCol = 0,
-		endCol = num - 1;
-	let count = 1;
-	while (startRow <= endRow && startCol <= endCol) {
-		for (let col = startCol; col <= endCol; col++) {
-			mtrx[startRow][col] = count;
-			count++;
-		}
-		startRow++;
-		for (let row = startRow; row <= endRow; row++) {
-			mtrx[row][endCol] = count;
-			count++;
-		}
-		endCol--;
-		for (let col = endCol; col >= startCol; col--) {
-			mtrx[endRow][col] = count;
-			count++;
-		}
-		endRow--;
-		for (let row = endRow; row >= startRow; row--) {
-			mtrx[row][startCol] = count;
-			count++;
-		}
-		startCol++;
-	}
-	return mtrx;
-}
+// 	let startRow = 0,
+// 		endRow = num - 1,
+// 		startCol = 0,
+// 		endCol = num - 1;
+// 	let count = 1;
+// 	while (startRow <= endRow && startCol <= endCol) {
+// 		for (let col = startCol; col <= endCol; col++) {
+// 			mtrx[startRow][col] = count;
+// 			count++;
+// 		}
+// 		startRow++;
+// 		for (let row = startRow; row <= endRow; row++) {
+// 			mtrx[row][endCol] = count;
+// 			count++;
+// 		}
+// 		endCol--;
+// 		for (let col = endCol; col >= startCol; col--) {
+// 			mtrx[endRow][col] = count;
+// 			count++;
+// 		}
+// 		endRow--;
+// 		for (let row = endRow; row >= startRow; row--) {
+// 			mtrx[row][startCol] = count;
+// 			count++;
+// 		}
+// 		startCol++;
+// 	}
+// 	return mtrx;
+// }
 
-console.log(matrix(3));
+// console.log(matrix(3));
