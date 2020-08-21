@@ -35,7 +35,7 @@ class LinkedList {
 		}
 		node = this.head;
 		nextNode = node.next;
-		while (nextNode !== null) {
+		while (nextNode.next !== null) {
 			node = nextNode;
 			nextNode = nextNode.next;
 		}
