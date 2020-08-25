@@ -46,3 +46,66 @@ Javascript concept cheat sheet.
     |                                                               |
     |                           YOUR CODE...                        |
     -----------------------------------------------------------------
+
+- Execution Context : Creation and Hoisting
+    1. Hoisting : 
+        b();
+        console.log(a);
+
+        let a = "Hello";
+        function b() {
+            console.log("called b");
+        }
+
+        Execution Context is created in two stages. 
+        1) _Creation Phase_ :
+            ----------------------------------------------------------------
+            |       Global              "this"              Outer           |
+            |       Object                                  Environment     |
+            |                                                               |
+            |                   Setup Memory Space for                      |
+            |                   Variables(set equal to undefined)           |
+            |                   and Functions "Hoisting"                    |
+            -----------------------------------------------------------------
+            not moving codes. Before your code executed line by line,
+            the JS engine has already set aside memory spaces for the variables and the functions.
+            but the function contents are already part of the memory in this phase but definition of
+            variables are not.
+        2) _Execution phase_ :
+            In this phase, finally the variables definitions are coming to play.
+            ----------------------------------------------------------------
+            |       Global              "this"              Outer           |
+            |       Object                                  Environment     |
+            |                                                               |
+            |                       RUN YOUR CODE...                        |
+            -----------------------------------------------------------------
+        
+
+- Javascript and undefined.
+    1. undefined is value. a special value and also a special keyword.
+        if ( a === undefined) {
+            console.log("a is undefined!") // this will show.
+        }else {
+            console.log("a is defined!")
+        }
+        (!) Never do this a = undefined;
+
+-$ JS is Single Threaded (One command at a time) 
+    & Synchronous (One at a time and in a order).
+
+- Invocation : running a function - in js, by using parenthesis ().
+
+- Execution Stacks : on the top is the one running
+
+    --------------------------------------
+    |   b()                              |      function a() {
+    |      Execution Context             |          b();
+    |      create and execute)           |          var c;
+    |                                    |      }
+    |   a()                              |      function b() {
+    |      Execution Context             |          var d;
+    |      create and execute)           |      }
+    |                                    |      
+    |    Global Execution Context        |      a();
+    |    (Created and code is executed)  |      var d;
+    --------------------------------------
