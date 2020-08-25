@@ -1,0 +1,111 @@
+Javascript concept cheat sheet.
+
+- Lexical environment: where something sits physically in the code you write.
+                    where is the code located? Where you put things.
+
+- Execution context: a Wrapper to help manage the code that is running.
+                There are lots of lexical environments. 
+                which one is currently running is managed via execution contexts.
+                It can contain things beyond what you've written in your code.
+
+- Object in JS : 
+    1. Name/Value pair. (Name which maps to an unique value.)
+        1) Address = "100 Main St." name value pair
+    2. A collection of name value pairs (Simple but true)
+        1) Address : {
+            Street : "100 MAin St.",
+            Number : 100
+            Apartment : {
+                Floor : 3,
+                Number : 301
+            }
+        }
+    3. That is it! Do not thing more than this.
+
+- Global Environment and Global Object.
+    1. Global - things can be accessed from anywhere.
+        1) Not inside of function
+            (1) when you create 
+                let a = "Hello";
+                function b() {
+                    ...
+                }   
+                These two will be in the window (G.o.) as properties.
+                > a --> "Hello" 
+                > window.a -->"Hello"
+
+    2. Execution context (Global) creates:
+        "G.O.", "This"
+    3. Empty JS --> execution context created. two created. "G.O." "This."
+        1) 'this' returns Window Object {...} (G.O.) (in the browser)
+        2) G.O.(window) = this
+    
+    ----------------------------------------------------------------
+    |       Global              "this"              Outer           |
+    |       Object                                  Environment     |
+    |                                                               |
+    |                           YOUR CODE...                        |
+    -----------------------------------------------------------------
+
+- Execution Context : Creation and Hoisting
+    1. Hoisting : 
+        b();
+        console.log(a);
+
+        let a = "Hello";
+        function b() {
+            console.log("called b");
+        }
+
+        Execution Context is created in two stages. 
+        1) _Creation Phase_ :
+            ----------------------------------------------------------------
+            |       Global              "this"              Outer           |
+            |       Object                                  Environment     |
+            |                                                               |
+            |                   Setup Memory Space for                      |
+            |                   Variables(set equal to undefined)           |
+            |                   and Functions "Hoisting"                    |
+            -----------------------------------------------------------------
+            not moving codes. Before your code executed line by line,
+            the JS engine has already set aside memory spaces for the variables and the functions.
+            but the function contents are already part of the memory in this phase but definition of
+            variables are not.
+        2) _Execution phase_ :
+            In this phase, finally the variables definitions are coming to play.
+            ----------------------------------------------------------------
+            |       Global              "this"              Outer           |
+            |       Object                                  Environment     |
+            |                                                               |
+            |                       RUN YOUR CODE...                        |
+            -----------------------------------------------------------------
+        
+
+- Javascript and undefined.
+    1. undefined is value. a special value and also a special keyword.
+        if ( a === undefined) {
+            console.log("a is undefined!") // this will show.
+        }else {
+            console.log("a is defined!")
+        }
+        (!) Never do this a = undefined;
+
+-$ JS is Single Threaded (One command at a time) 
+    & Synchronous (One at a time and in a order).
+
+- Invocation : running a function - in js, by using parenthesis ().
+
+- Execution Stacks : on the top is the one running
+
+    --------------------------------------
+    |   b()                              |      function a() {
+    |      Execution Context             |          b();
+    |      create and execute)           |          var c;
+    |                                    |      }
+    |   a()                              |      function b() {
+    |      Execution Context             |          var d;
+    |      create and execute)           |      }
+    |                                    |      
+    |    Global Execution Context        |      a();
+    |    (Created and code is executed)  |      var d;
+    --------------------------------------

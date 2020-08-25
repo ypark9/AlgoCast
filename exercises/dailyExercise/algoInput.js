@@ -15,43 +15,43 @@
 
 // mergeArray(arr, arr1);
 
-function palindrome(str) {
-	return str.split('').reverse().join('') === str;
-}
+// function palindrome(str) {
+// 	return str.split('').reverse().join('') === str;
+// }
 
-palindrome('abba');
+// palindrome('abba');
 
-function reverseInt(number) {
-	let numStr = String(number);
-	return +numStr.split('').reverse().join('');
-}
+// function reverseInt(number) {
+// 	let numStr = String(number);
+// 	return +numStr.split('').reverse().join('');
+// }
 
-reverseInt(69);
+// reverseInt(69);
 
-function findMaxChar(str) {
-	let dic = {};
-	let maxCount = 0;
-	let maxChar;
-	//need to check how to initialize the map in js
-	for (char of str) {
-		if (dic[char]) {
-			dic[char]++;
-		} else {
-			dic[char] = 1;
-		}
-	}
+// function findMaxChar(str) {
+// 	let dic = {};
+// 	let maxCount = 0;
+// 	let maxChar;
+// 	//need to check how to initialize the map in js
+// 	for (char of str) {
+// 		if (dic[char]) {
+// 			dic[char]++;
+// 		} else {
+// 			dic[char] = 1;
+// 		}
+// 	}
 
-	for (char in dic) {
-		if (dic[char] > maxCount) {
-			maxCount = dic[char];
-			maxChar = char;
-		}
-	}
-	console.log(`${maxChar}`);
-	return { maxCount: maxCount, character: maxChar };
-}
+// 	for (char in dic) {
+// 		if (dic[char] > maxCount) {
+// 			maxCount = dic[char];
+// 			maxChar = char;
+// 		}
+// 	}
+// 	console.log(`${maxChar}`);
+// 	return { maxCount: maxCount, character: maxChar };
+// }
 
-findMaxChar('aaddddddddddvvvvvvvvvvvvvvvvvvv');
+// findMaxChar('aaddddddddddvvvvvvvvvvvvvvvvvvv');
 
 // function chunck(arr, num) {
 //   let retArr = [];
@@ -118,15 +118,12 @@ findMaxChar('aaddddddddddvvvvvvvvvvvvvvvvvvv');
 //     starStr += '**';
 // 		starObjsArry.push({ stars: starStr, NeedToFill: largestStarNum - (2 * i - 1) });
 //   }
-
 //   for(item of starObjsArry) {
-
 //     for(let i = 0; i < item.NeedToFill/2; i ++) {
 //       item.stars = " "+ item.stars;
 //       item.stars = item.stars + " ";
 //     }
 //   }
-
 // 	return starObjsArry;
 // }
 
@@ -135,13 +132,53 @@ findMaxChar('aaddddddddddvvvvvvvvvvvvvvvvvvv');
 
 // function findVowels(str) {
 
-//   //replace to find vowels . -replace regex 
+//   //replace to find vowels . -replace regex
 //   let refultStr = str.replace(/[^aiueo]/g, "");
-//   return refultStr.length;  
+//   return refultStr.length;
 // }
 
 // let count = findVowels("aaddncnskskdiooo");
 // console.log("count", count);
+//     matrix(4)
+//     [[1,  2,  3, 4],
+//     [12, 13, 14, 5],
+//     [11, 16, 15, 6],
+//     [10,  9,  8, 7]]
+// https://code.likeagirl.io/create-a-nxn-matrix-spiral-with-javascript-955ee18402f7
+// function matrix(num) {
+// 	// remember how to initialize NxN matrix.
+// 	let mtrx = new Array(num).fill().map(() => new Array(num).fill(1));
+// 	console.log(mtrx);
+
+// 	let startRow = 0,
+// 		endRow = num - 1,
+// 		startCol = 0,
+// 		endCol = num - 1;
+// 	let count = 1;
+// 	while (startRow <= endRow && startCol <= endCol) {
+// 		for (let col = startCol; col <= endCol; col++) {
+// 			mtrx[startRow][col] = count;
+// 			count++;
+// 		}
+// 		startRow++;
+// 		for (let row = startRow; row <= endRow; row++) {
+// 			mtrx[row][endCol] = count;
+// 			count++;
+// 		}
+// 		endCol--;
+// 		for (let col = endCol; col >= startCol; col--) {
+// 			mtrx[endRow][col] = count;
+// 			count++;
+// 		}
+// 		endRow--;
+// 		for (let row = endRow; row >= startRow; row--) {
+// 			mtrx[row][startCol] = count;
+// 			count++;
+// 		}
+// 		startCol++;
+// 	}
+// 	return mtrx;
+// }
 
 //let filledArray = new Array(10).fill(null).map(()=> ({'hello':'goodbye'}))
 // In this approach, we are creating an array with ten empty slots, then filling those slots with the null value, 
@@ -154,3 +191,4 @@ function matrix(num) {
 
 let testArr = new Array(4).fill(0).map();
 console.log("testArr", testArr);
+// console.log(matrix(3));
