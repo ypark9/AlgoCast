@@ -1,0 +1,7 @@
+Lexical environment: where something sits physically in the code you write.
+                    where is the code located? Where you put things.
+
+Execution context: a Wrapper to help manage the code that is running.
+                There are lots of lexical environments. 
+                which one is currently running is managed via execution contexts.
+                It can contain things beyond what you've written in your code.
